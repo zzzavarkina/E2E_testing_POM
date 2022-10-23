@@ -30,3 +30,11 @@ def driver():
     options.binary_location = os.getenv('FIREFOX_PATH')
     driver = webdriver.Firefox(executable_path=os.getenv('GECKODRIVER_PATH'), options=options)
     return driver
+
+@pytest.fixture(scope="class")
+def driver_for_class():
+    options = Options()
+    options.binary_location = os.getenv('FIREFOX_PATH')
+    driver_for_class = webdriver.Firefox(executable_path=os.getenv('GECKODRIVER_PATH'), options=options)
+    driver_for_class.get("https://qa-scooter.praktikum-services.ru/")
+    return driver_for_class
