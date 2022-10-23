@@ -19,9 +19,8 @@ class Logo:
                 driver.switch_to.window(window_handle)
                 break
         WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(self.yandex_main_page_header))
-        assert "dzen" in driver.current_url
+
 
     def click_scooter_logo(self, driver):
         driver.find_element(*self.scooter_logo).click()
         WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(self.scooter_main_page_header))
-        assert driver.current_url == 'https://qa-scooter.praktikum-services.ru/'

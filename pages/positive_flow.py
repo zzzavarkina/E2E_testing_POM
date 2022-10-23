@@ -71,4 +71,6 @@ class PositiveFlow():
         WebDriverWait(driver, 10).until(expected_conditions.element_to_be_clickable(self.place_order_button)).click()
         WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(self.modal_header))
         driver.find_elements(*self.modal_yes_button)[1].click()
-        assert driver.find_element(*self.modal_ok_status).is_displayed()
+
+    def is_order_complete(self, driver):
+        return driver.find_element(*self.modal_ok_status).is_displayed()
