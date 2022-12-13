@@ -17,9 +17,6 @@ class LandingPage:
     yandex_main_page_header = [By.XPATH, "//header[@class='dzen-header-desktop__header-ST']"]
 
 
-    def __init__(self, driver):
-        self.driver = driver
-
     def click_accordion_element(self, driver, element_index):
         driver.execute_script("arguments[0].scrollIntoView();", driver.find_element(*self.accordion_heading[element_index]))
         WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(self.accordion_heading[element_index]))

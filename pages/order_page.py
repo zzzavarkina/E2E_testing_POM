@@ -36,9 +36,6 @@ class OrderPage:
 
     test_set = {}
 
-    def __init__(self, driver):
-        self.driver = driver
-
     def click_upbutton(self, driver):
         WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(self.cookie_window))
         driver.find_element(*self.cookie_button).click()
